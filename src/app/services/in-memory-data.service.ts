@@ -17,9 +17,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 17, name: 'Jean Grey' },
       { id: 18, name: 'Rogue' },
       { id: 19, name: 'Elektra' },
-      { id: 20, name: 'Emma Frost' }
-    ];
-    const villains = [
+      { id: 20, name: 'Emma Frost' },
       {id: 21, name: 'Magneto'},
       {id: 22, name: 'Dr Doom'},
       {id: 23, name: 'Kingpin'},
@@ -30,7 +28,9 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 27, name: 'Octopus'},
       {id: 28, name: 'Dark Phoenix'},
       {id: 29, name: 'Sabretooth'},
-      {id: 30, name: 'Mr. Sinister'},
+      {id: 30, name: 'Mr. Sinister'}
+    ];
+    const villains = [
     ];
     return {heroes, villains};
   }

@@ -18,6 +18,7 @@ import { TopbarComponent } from './modules/components/topbar/topbar.component';
 import { VillainsComponent } from './modules/components/villains/villains.component';
 import { VillainDetailComponent } from './modules/components/villain-detail/villain-detail.component';
 import { VillainSearchComponent } from './modules/components/villain-search/villain-search.component';
+import {CharactersComponent} from './modules/components/characters/characters.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { VillainSearchComponent } from './modules/components/villain-search/vill
     TopbarComponent,
     VillainsComponent,
     VillainDetailComponent,
-    VillainSearchComponent
+    VillainSearchComponent,
+    CharactersComponent
   ],
   bootstrap: [ AppComponent ]
 })
