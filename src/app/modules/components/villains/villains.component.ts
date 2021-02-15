@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Villain} from '../../../interfaces/villain';
 import {VillainService} from '../../../services/villain.service';
+import {Mutant} from '../../../interfaces/mutant';
 
 @Component({
   selector: 'app-villains',
@@ -8,7 +8,7 @@ import {VillainService} from '../../../services/villain.service';
   styleUrls: ['./villains.component.css']
 })
 export class VillainsComponent implements OnInit {
-  villains: Villain[];
+  villains: Mutant[];
 
   constructor(private villainService: VillainService) {
   }
@@ -23,12 +23,12 @@ export class VillainsComponent implements OnInit {
     if (!name) {
       return;
     }
-    this.villainService.addVillain({name} as Villain).subscribe(villain => {
+    this.villainService.addVillain({name} as Mutant).subscribe(villain => {
       this.villains.push(villain);
     });
   }
 
-  delete(villain: Villain): void {
+  delete(villain: Mutant): void {
     this.villains = this.villains.filter(v => v !== villain);
     this.villainService.deleteVillain(villain).subscribe();
   }

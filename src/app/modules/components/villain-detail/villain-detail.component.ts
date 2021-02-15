@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import {Villain} from '../../../interfaces/villain';
 import { VillainService } from '../../../services/villain.service';
+import {Mutant} from '../../../interfaces/mutant';
 
 @Component({
   selector: 'app-villains-details',
@@ -11,7 +11,7 @@ import { VillainService } from '../../../services/villain.service';
   styleUrls: ['./villain-detail.component.css']
 })
 export class VillainDetailComponent implements OnInit {
-  villain: Villain;
+  villain: Mutant;
   constructor(
     private route: ActivatedRoute,
     private villainService: VillainService,

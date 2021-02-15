@@ -4,15 +4,14 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 
-import {Villain} from '../interfaces/villain';
 import {MessageService} from './message.service';
-import {Hero} from '../interfaces/hero';
+import {Mutant} from '../interfaces/mutant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VillainService {
-  private villiansUrl = 'api/villains';
+  private villiansUrl = 'api/heroes';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -23,62 +22,66 @@ export class VillainService {
   ) {
   }
 
-  getVillains(): Observable<Villain[]> {
-    return this.http.get<Villain[]>(this.villiansUrl)
+  getVillains(): Observable<Mutant[]> {
+    return this.http.get<Mutant[]>(this.villiansUrl)
       .pipe(
+        map(mutants => mutants.filter(mutant => {
+          console.log(mutant.isHero);
+          return !mutant.isHero;
+        })),
         tap(_ => this.log('fetched villains')),
-        catchError(this.handleError<Villain[]>('getVillains', []))
+        catchError(this.handleError<Mutant[]>('getVillains', []))
       );
   }
-  getVillain(id: number): Observable<Villain>{
+  getVillain(id: number): Observable<Mutant>{
     const url = `${this.villiansUrl}/${id}`;
-    return this.http.get<Villain>(url).pipe(
+    return this.http.get<Mutant>(url).pipe(
       tap( _ => this.log(`fetched villain id=${id}`) ),
-      catchError(this.handleError<Villain>(`getVillain id=${id}`))
+      catchError(this.handleError<Mutant>(`getVillain id=${id}`))
     );
   }
-  getVillianNo404<Data>(id: number): Observable<Villain> {
+  getVillianNo404<Data>(id: number): Observable<Mutant> {
     const url = `${this.villiansUrl}/?id=${id}`;
-    return this.http.get<Villain[]>(url)
+    return this.http.get<Mutant[]>(url)
       .pipe(
         map(villains => villains[0]),
         tap(h => {
           const outcome = h ? 'fetched' : 'did not find';
           this.log(`${outcome} villain id=${id}`);
         }),
-        catchError(this.handleError<Villain>(` getVillain id=${id}`))
+        catchError(this.handleError<Mutant>(` getVillain id=${id}`))
       );
   }
 
-  searchVillais(term: string): Observable<Villain[]> {
+  searchVillais(term: string): Observable<Mutant[]> {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<Villain[]>(`${this.villiansUrl}/?name=${term}`).pipe(
+    return this.http.get<Mutant[]>(`${this.villiansUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
         this.log(`found villains matching "${term}"`) :
         this.log(`no villains matching "${term}"`)),
-      catchError(this.handleError<Hero[]>('searchVillains', []))
+      catchError(this.handleError<Mutant[]>('searchVillains', []))
     );
   }
-  addVillain(villain: Villain): Observable<Villain> {
-    return this.http.post<Villain>(this.villiansUrl, villain, this.httpOptions).pipe(
-      tap((newVillain: Villain) => this.log(`added villain w/ id=${newVillain.id}`)),
-      catchError(this.handleError<Hero>('addVillain'))
+  addVillain(villain: Mutant): Observable<Mutant> {
+    return this.http.post<Mutant>(this.villiansUrl, villain, this.httpOptions).pipe(
+      tap((newVillain: Mutant) => this.log(`added villain w/ id=${newVillain.id}`)),
+      catchError(this.handleError<Mutant>('addVillain'))
     );
   }
-  deleteVillain(villain: Villain): Observable<Villain> {
+  deleteVillain(villain: Mutant): Observable<Mutant> {
     const id = typeof  villain === 'number' ? villain : villain.id;
     const url = `${this.villiansUrl}/${id}`;
-    return this.http.delete<Villain>(url, this.httpOptions).pipe(
+    return this.http.delete<Mutant>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted villain id=${id}`)),
-      catchError(this.handleError<Villain>('deleteVillain'))
+      catchError(this.handleError<Mutant>('deleteVillain'))
     );
   }
-  updateVillain(villain: Villain): Observable<any>{
-    return this.http.put<Villain>(this.villiansUrl, villain, this.httpOptions).pipe(
+  updateVillain(villain: Mutant): Observable<any>{
+    return this.http.put<Mutant>(this.villiansUrl, villain, this.httpOptions).pipe(
       tap(_ => this.log(`updated villain id=${villain.id}`)),
-      catchError(this.handleError<Villain>('updateVillain'))
+      catchError(this.handleError<Mutant>('updateVillain'))
     );
   }
   private handleError<T>(operation = 'operation', result?: T) {

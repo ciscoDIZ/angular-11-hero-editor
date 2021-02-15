@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -17,23 +17,23 @@ import { MessagesComponent } from './modules/components/messages/messages.compon
 import { TopbarComponent } from './modules/components/topbar/topbar.component';
 import { VillainsComponent } from './modules/components/villains/villains.component';
 import { VillainDetailComponent } from './modules/components/villain-detail/villain-detail.component';
-import { VillainSearchComponent } from './modules/components/villain-search/villain-search.component';
 import {CharactersComponent} from './modules/components/characters/characters.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
 
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
-  ],
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, {dataEncapsulation: false}
+        ),
+        ReactiveFormsModule
+    ],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -44,7 +44,6 @@ import {CharactersComponent} from './modules/components/characters/characters.co
     TopbarComponent,
     VillainsComponent,
     VillainDetailComponent,
-    VillainSearchComponent,
     CharactersComponent
   ],
   bootstrap: [ AppComponent ]

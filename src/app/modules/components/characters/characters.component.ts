@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HeroService} from '../../../services/hero.service';
 import {VillainService} from '../../../services/villain.service';
-import {Hero} from '../../../interfaces/hero';
-import {Villain} from '../../../interfaces/villain';
+import {Mutant} from '../../../interfaces/mutant';
+
 
 @Component({
   selector: 'app-characters',
@@ -11,8 +11,8 @@ import {Villain} from '../../../interfaces/villain';
 })
 
 export class CharactersComponent implements OnInit {
-  heroes: Hero[] = [];
-  villains: Villain[] = [];
+  heroes: Mutant[] = [];
+  villains: Mutant[] = [];
   heroesTitle: string;
   villainsTitle: string;
 
