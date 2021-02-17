@@ -11,16 +11,13 @@
           <input [(ngModel)]="hero.name" placeholder="name">
         </label>
       </div>
-      <div>
+      <div *ngIf="hero.birth; else desconocida">
         <label>edad:
-          <div *ngIf="hero.birth; else desconocida">
-            <label>
               <input [(ngModel)]="hero.birth" [defaultValue]="hero.birth"  type="date">
-            </label>
-          </div>
-          <ng-template #desconocida><p>Desconocida.</p></ng-template>
         </label>
+        <div>{{date.getFullYear() - hero.birth.getFullYear()}} años</div>
       </div>
+      <ng-template #desconocida><p>Desconocida.</p></ng-template>
       <div>
         <label>descripción:
           <textarea [(ngModel)]="hero.description" name="description"></textarea>

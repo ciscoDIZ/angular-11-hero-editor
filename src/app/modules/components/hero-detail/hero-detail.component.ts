@@ -15,7 +15,7 @@ export class HeroDetailComponent implements OnInit {
   hero: Mutant;
   // formHero: FormGroup;
   submitted = false;
-
+  date: Date;
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
@@ -29,6 +29,7 @@ export class HeroDetailComponent implements OnInit {
     /*this.formHero = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]]
     });*/
+    this.date = new Date();
   }
 
   getHero(): void {
