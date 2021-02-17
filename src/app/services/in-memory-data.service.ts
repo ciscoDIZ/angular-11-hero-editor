@@ -11,41 +11,38 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 11,
         name: 'Spider-man',
-        picture: '',
+        picture: '../../../../assets/img/spiderman.jpeg',
         birth: new Date(1993, 10, 13),
         description: '',
         color: 'red',
-        isHero: true},
+      },
       {
         id: 12,
         name: 'Wolverine',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/wolverine.gif',
         birth: null,
         description: '',
-        color: 'red',
-        isHero: true
+        color: 'yellow',
       },
       {
         id: 13,
         name: 'Cyclops',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/cyclops.jpeg',
         birth: new Date(1991, 12, 1),
         description: '',
-        color: 'red',
-        isHero: true
+        color: 'blue',
       },
       {
         id: 14,
         name: 'Phoenix',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/phoenix.jpeg',
         birth: null, description: '',
-        color: 'red',
-        isHero: true
+        color: 'orange',
       },
       {
         id: 15,
         name: 'Cable',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/cable.jpeg',
         birth: new Date(1986, 0, 2),
         description: 'El nacimiento de Nathan Summers fue cuidadosamente orquestado por el genetista Mister Sinister. Él sabía que el ADN de' +
           ' la familia Summers era uno de los mas puros entre los mutantes.' +
@@ -53,152 +50,137 @@ export class InMemoryDataService implements InMemoryDbService {
           'temprana. Después de que su madre murió tratando de sacrificarlo, fue infectado por Apocalypse con el Virus Techno-Orgánico, que ' +
           'estaba destinado a matarlo, hasta que su padre lo envió al futuro distante para que pudiera recibir un tratamiento adecuado que ' +
           'pudiera salvarle la vida',
-        color: 'red',
-        isHero: true  },
+        color: 'blue',
+      },
       {
         id: 16,
         name: 'Storm',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/storm.jpeg',
         birth: new Date(1994, 12, 1),
         description: '',
-        color: 'red',
-        isHero: true
+        color: 'grey',
       },
       {
         id: 17,
         name: 'Legion',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/legion.jpg',
         birth: new Date(1996, 12, 1),
         description: '',
-        color: 'red',
-        isHero: true
+        color: 'blue',
       },
       {
         id: 18,
         name: 'Rogue',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/rogue.jpeg',
         birth: new Date(1995, 12, 1),
         description: '',
-        color: 'red',
-        isHero: true
+        color: 'yellow',
       },
       {
         id: 19, name: 'Elektra',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/elektra.jpeg',
         birth: new Date(1984, 12, 1),
         description: '',
         color: 'red',
-        isHero: true
       },
       {
         id: 20,
         name: 'Emma Frost',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/emmaFrost.jpeg',
         birth: new Date(1990, 12, 1),
         description: '',
-        color: 'red',
-        isHero: true
-      },
+        color: 'white',
+      }
+    ];
+    const villains = [
       {
         id: 21,
         name: 'Magneto',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/magneto.jpeg',
         birth: new Date(1920, 12, 1),
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'violet',
       },
       {
         id: 22,
         name: 'Dr Doom',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/drDoom.jpeg',
         birth: null,
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'green',
       },
       {
         id: 23,
         name: 'Kingpin',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/kinpin.jpeg',
         birth: new Date(1970, 12, 1),
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'white',
       },
       {
         id: 24,
         name: 'Logan',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/logan.jpg',
         birth: null, description: '',
         color: 'red',
-        isHero: false
       },
       {
         id: 25,
         name: 'Apocalypse',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/apocalypse.jpeg',
         birth: null,
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'grey',
       },
       {
         id: 26,
         name: 'Onslaugth',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/onslaugth.jpg',
         birth: null,
         description: '',
         color: 'red',
-        isHero: false
       },
       {
         id: 27,
         name: 'Venom',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/venom.jpeg',
         birth: null,
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'black',
       },
       {
         id: 27,
         name: 'Octopus',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/octopus.png',
         birth: new Date(1977, 12, 1),
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'green',
       },
       {
         id: 28, name: 'Dark Phoenix',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/darkPhoenix.jpeg',
         birth: null,
         description: '',
         color: 'red',
-        isHero: false
       },
       {
         id: 29,
         name: 'Sabretooth',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/sabretooh.jpeg',
         birth: null,
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'yellow',
       },
       {
         id: 30,
         name: 'Mr. Sinister',
-        picture: 'asserts/img/spiderman.jpeg',
+        picture: '../../../../assets/img/mrSinester.jpeg',
         birth: null,
         description: '',
-        color: 'red',
-        isHero: false
+        color: 'grey',
       }
     ];
-    /*const villains = [];*/
-    return {heroes};
+    return {heroes, villains};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.

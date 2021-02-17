@@ -11,7 +11,7 @@ import {Mutant} from '../interfaces/mutant';
   providedIn: 'root'
 })
 export class VillainService {
-  private villiansUrl = 'api/heroes';
+  private villiansUrl = 'api/villains';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -25,10 +25,6 @@ export class VillainService {
   getVillains(): Observable<Mutant[]> {
     return this.http.get<Mutant[]>(this.villiansUrl)
       .pipe(
-        map(mutants => mutants.filter(mutant => {
-          console.log(mutant.isHero);
-          return !mutant.isHero;
-        })),
         tap(_ => this.log('fetched villains')),
         catchError(this.handleError<Mutant[]>('getVillains', []))
       );

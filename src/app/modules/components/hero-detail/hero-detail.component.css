@@ -28,3 +28,6 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+img{
+  width: 20vw;
+}

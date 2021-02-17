@@ -1,13 +1,40 @@
 <div *ngIf="hero">
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.name}}</div>
-  <div>
-    <img src="asserts/img/cable.jpeg" alt="">
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </label>
-    <p>{{hero.description}}</p>
+  <div class="container-fluid">
+    <div class="row">
+      <div>
+        <img src="{{hero.picture}}" alt="" class="img-fluid img-thumbnail">
+      </div>
+      <div>
+        <label>name:
+          <input [(ngModel)]="hero.name" placeholder="name">
+        </label>
+      </div>
+      <div>
+        <label>edad:
+          <div *ngIf="hero.birth; else desconocida">
+            <label>
+              <input [(ngModel)]="hero.birth" [defaultValue]="hero.birth"  type="date">
+            </label>
+          </div>
+          <ng-template #desconocida><p>Desconocida.</p></ng-template>
+        </label>
+      </div>
+      <div>
+        <label>descripción:
+          <textarea [(ngModel)]="hero.description" name="description"></textarea>
+        </label>
+      </div>
+      <div>
+        <label>
+          color:
+          <input [(ngModel)]="hero.color" type="color">
+        </label>
+      </div>
+    </div>
   </div>
+
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
 </div>

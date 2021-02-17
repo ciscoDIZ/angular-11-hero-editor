@@ -6,6 +6,8 @@ import {catchError, filter, map, mapTo, tap} from 'rxjs/operators';
 
 import { Mutant } from '../interfaces/mutant';
 import { MessageService } from './message.service';
+import {InMemoryDataService} from './in-memory-data.service';
+import {VillainService} from './villain.service';
 
 
 @Injectable({ providedIn: 'root' })
@@ -19,13 +21,15 @@ export class HeroService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private villainService: VillainService
+  ) { }
 
   /** GET heroes from the server */
   getHeroes(): Observable<Mutant[]> {
+    console.log(this.heroesUrl);
     return this.http.get<Mutant[]>(this.heroesUrl)
       .pipe(
-        map(mutants => mutants.filter(mutant => mutant.isHero)),
         tap(_ =>  this.log('fetched heroes')),
         catchError(this.handleError<Mutant[]>('getHeroes', []))
       );
